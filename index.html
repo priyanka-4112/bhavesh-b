@@ -4,229 +4,345 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Bharwani and Associates — Assurance | Compliance | Resolution</title>
-  <meta name="description" content="Bharwani and Associates - Audit & Assurance, Taxation, Transaction Advisory, Fundraising Support. Contact: 81601 81883" />
-  <link rel="icon" href="logo.png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
   <style>
-    /* ---------- Palette & Base ---------- */
+    /* ------------ Palette & Base ------------ */
     :root{
-      --blue-900:#0b3d91;
-      --blue-700:#1e59c1;
-      --blue-500:#2f7be0;
+      --blue-900:#071A52;   /* deep blue */
+      --blue-700:#123A8A;
+      --blue-500:#2F67C6;
       --white:#ffffff;
       --muted:#6b7280;
-      --glass: rgba(255,255,255,0.85);
-      --max-width:1100px;
-      --radius:12px;
+      --orange:#F0532D;    /* accent */
+      --green:#18A75B;     /* small accent */
+      --glass: rgba(255,255,255,0.9);
+      --container:1200px;
     }
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
       font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color:#111827;
-      background: linear-gradient(180deg, #f7fbff 0%, #ffffff 50%);
+      color:#0f1724;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
+      background:linear-gradient(180deg,#fbfdff 0%, #ffffff 100%);
+      line-height:1.45;
+      -webkit-font-feature-settings: "kern";
     }
-    a{color:var(--blue-700); text-decoration:none}
-    .container{max-width:var(--max-width); margin:0 auto; padding:0 20px;}
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--container); margin:0 auto; padding:0 22px}
 
-    /* ---------- Header / Nav ---------- */
-    header{
-      background:linear-gradient(90deg, rgba(11,61,145,0.98), rgba(30,89,193,0.95));
-      color:var(--white);
-      position:sticky; top:0; z-index:40;
-      box-shadow:0 6px 20px rgba(15,23,42,0.12);
+    /* ------------ Top Info Bar ------------ */
+    .top-info{
+      background:var(--white);
+      border-bottom:1px solid #e6eefc;
+      font-size:14px;
+      color:var(--muted);
     }
-    .topbar{display:flex; align-items:center; justify-content:space-between; height:72px; max-width:var(--max-width); margin:0 auto; padding:0 20px;}
+    .top-info .container{display:flex; align-items:center; justify-content:space-between; gap:12px; height:44px}
+    .top-info .left{display:flex; gap:18px; align-items:center}
+    .top-info .right{display:flex; gap:12px; align-items:center}
+    .socials a{display:inline-block; width:30px; height:30px; border-radius:999px; background:#f6f8ff; color:var(--blue-700); display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+
+    /* ------------ Main Header / Nav ------------ */
+    header.main-header{position:sticky; top:0; z-index:60; background:linear-gradient(90deg,var(--blue-900),var(--blue-700)); color:var(--white); box-shadow:0 6px 28px rgba(8,20,60,0.12)}
+    .nav-row{display:flex; align-items:center; justify-content:space-between; gap:12px; height:76px; padding:0 22px; max-width:var(--container); margin:0 auto}
     .brand{display:flex; align-items:center; gap:14px}
-    .brand img{height:46px; width:auto; border-radius:6px; background:var(--white); padding:4px}
-    .brand h1{font-size:18px; margin:0; font-weight:700; letter-spacing:0.2px}
-    nav{display:flex; gap:18px; align-items:center}
-    nav a{color:rgba(255,255,255,0.95); font-weight:600}
-    .cta{background:var(--white); color:var(--blue-900); padding:8px 12px; border-radius:8px; font-weight:700; box-shadow:0 6px 18px rgba(11,61,145,0.12)}
+    .brand img{height:48px; width:auto; border-radius:8px; background:var(--white); padding:6px}
+    .brand h1{margin:0; font-size:18px; font-weight:700; letter-spacing:0.2px}
+    .tagline{font-size:13px; color:rgba(255,255,255,0.85)}
 
-    /* ---------- Hero ---------- */
-    .hero{padding:56px 0 36px; display:flex; align-items:center; gap:36px}
-    .hero-grid{display:grid; grid-template-columns:1fr 420px; gap:32px; align-items:center}
-    .kicker{display:inline-block; background:rgba(255,255,255,0.12); color:var(--white); padding:6px 10px; border-radius:999px; font-weight:600; margin-bottom:12px}
-    .hero h2{color:var(--white); font-size:34px; margin:8px 0 12px; line-height:1.08}
-    .hero p.lead{color:rgba(255,255,255,0.92); margin:0 0 18px; font-size:16px; max-width:60ch}
-    .hero .actions{display:flex; gap:12px}
-    .btn-primary{background:var(--white); color:var(--blue-900); padding:12px 16px; border-radius:10px; font-weight:700}
-    .btn-outline{background:transparent; border:2px solid rgba(255,255,255,0.2); color:var(--white); padding:10px 14px; border-radius:10px}
+    nav.main-nav{display:flex; gap:18px; align-items:center}
+    nav.main-nav > ul{display:flex; gap:8px; align-items:center; margin:0; padding:0; list-style:none}
+    nav a{color:rgba(255,255,255,0.95); font-weight:600; padding:8px 12px; border-radius:6px; display:inline-block}
+    nav a:hover{background:rgba(255,255,255,0.06)}
+    .btn-cta{background:var(--white); color:var(--blue-900); padding:10px 14px; border-radius:8px; font-weight:700}
 
-    /* ---------- Cards / Services ---------- */
-    section{padding:56px 0}
-    .section-title{display:flex; align-items:baseline; gap:16px; margin-bottom:18px}
-    .section-title h3{margin:0; color:var(--blue-900)}
-    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px}
-    .card{background:var(--white); border-radius:12px; padding:18px; box-shadow:0 8px 30px rgba(11,61,145,0.06); min-height:140px; display:flex; flex-direction:column; gap:8px}
-    .card h4{margin:0; color:var(--blue-700)}
-    .muted{color:var(--muted); font-size:14px}
+    /* Dropdown */
+    .dropdown{position:relative}
+    .dropdown .menu{position:absolute; top:46px; left:0; min-width:200px; background:var(--white); color:#0b1b3a; border-radius:8px; box-shadow:0 14px 30px rgba(7,26,82,0.15); overflow:hidden; display:none}
+    .dropdown:hover .menu{display:block}
+    .dropdown .menu a{display:block; padding:10px 12px; color:#0c1836; font-weight:600}
+    .dropdown .menu a:hover{background:#f6f8ff}
 
-    /* ---------- Team ---------- */
-    .team-card{display:flex; gap:16px; align-items:center}
-    .avatar{width:110px; height:110px; border-radius:12px; overflow:hidden; flex-shrink:0}
+    /* Mobile nav toggle */
+    .mobile-toggle{display:none; background:transparent; border:0; color:var(--white); font-weight:700}
+
+    /* ------------ HERO ------------ */
+    .hero{
+      position:relative;
+      color:var(--white);
+      overflow:hidden;
+    }
+    .hero-inner{max-width:var(--container); margin:0 auto; display:grid; grid-template-columns: 1fr 520px; gap:28px; align-items:center; padding:52px 22px 72px}
+    .hero-left{padding-right:12px}
+    .kicker{display:inline-block; background:rgba(255,255,255,0.08); padding:8px 12px; border-radius:999px; font-weight:700; color:var(--white); font-size:13px}
+    .hero-title{font-family: "Playfair Display", serif; font-size:56px; line-height:1.02; margin:14px 0 18px; letter-spacing:-1px}
+    .hero-title .dot{color:var(--orange)}
+    .hero-sub{font-size:16px; color:rgba(255,255,255,0.92); max-width:44ch}
+    .hero-ctas{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
+
+    .hero-ctas .pill{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:8px; font-weight:700; cursor:pointer}
+    .pill.orange{background:var(--orange); color:var(--white)}
+    .pill.white{background:var(--white); color:var(--blue-900)}
+
+    /* hero right image w/ overlay pattern */
+    .hero-right{
+      height:420px;
+      border-radius:12px;
+      overflow:hidden;
+      position:relative;
+      box-shadow:0 20px 60px rgba(11,61,145,0.14);
+    }
+    .hero-right img{width:100%; height:100%; object-fit:cover; display:block}
+    /* pattern overlay */
+    .hero-overlay{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(7,26,82,0.62), rgba(18,58,138,0.34)),
+        repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 8px, rgba(255,255,255,0.00) 8px 16px);
+      mix-blend-mode: normal;
+    }
+
+    /* service buttons grid (like KMS) */
+    .service-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:20px}
+    .svc-btn{background:var(--white); color:var(--blue-900); padding:12px 16px; border-radius:8px; display:flex; gap:10px; align-items:center; font-weight:700; box-shadow:0 10px 30px rgba(15,23,42,0.06)}
+    .svc-btn svg{width:20px;height:20px; opacity:0.9}
+
+    /* ------------ Sections ------------ */
+    section{padding:64px 0}
+    .section-head{display:flex; gap:18px; align-items:baseline; margin-bottom:20px}
+    .section-head h3{margin:0; color:var(--blue-900); font-size:22px}
+    .muted{color:var(--muted)}
+    .grid{display:grid; gap:18px}
+
+    /* services cards */
+    .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px}
+    .card{background:var(--white); padding:18px; border-radius:10px; box-shadow:0 16px 38px rgba(11,61,145,0.06)}
+    .card h4{margin:0 0 8px; color:var(--blue-700)}
+
+    /* team */
+    .team-card{display:flex; gap:18px; align-items:center}
+    .avatar{width:120px; height:120px; border-radius:10px; overflow:hidden; flex-shrink:0}
     .avatar img{width:100%; height:100%; object-fit:cover}
-    .person-info h4{margin:0 0 6px}
-    .person-info p{margin:0; color:var(--muted)}
 
-    /* ---------- Contact & Map ---------- */
+    /* contact grid & map */
     .contact-grid{display:grid; grid-template-columns:1fr 420px; gap:22px; align-items:start}
-    .contact-card{background:linear-gradient(180deg,#ffffff, #f8fbff); padding:18px; border-radius:12px; box-shadow:0 8px 26px rgba(11,61,145,0.04)}
-    .contact-list{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px}
-    .contact-list li{display:flex; gap:10px; align-items:center}
-    .map-iframe{width:100%; height:300px; border-radius:12px; border:0; box-shadow:0 10px 30px rgba(11,61,145,0.06);}
+    .map{border-radius:10px; overflow:hidden; box-shadow:0 16px 40px rgba(11,61,145,0.06)}
+    iframe{width:100%; height:100%; border:0; display:block}
 
-    /* ---------- Footer ---------- */
-    footer{padding:20px 0; background:#f4f8ff; color:var(--muted); margin-top:18px; text-align:center}
+    /* footer */
+    footer{background:#f4f8ff; padding:18px 0; color:var(--muted); text-align:center}
 
-    /* ---------- Utilities & Responsive ---------- */
-    .center{display:flex; align-items:center; justify-content:center}
-    @media (max-width:960px){
-      .hero-grid, .contact-grid{grid-template-columns:1fr}
-      nav{display:none}
-      .topbar{padding:8px 16px}
+    /* ---------- Animations & Utilities ---------- */
+    .fade-up{opacity:0; transform:translateY(14px); transition:all 650ms cubic-bezier(.2,.9,.2,1)}
+    .in-view{opacity:1; transform:none}
+    @media (max-width:1100px){
+      .hero-inner{grid-template-columns:1fr 1fr}
+      .hero-title{font-size:44px}
+    }
+    @media (max-width:900px){
+      .hero-inner{grid-template-columns:1fr; padding:40px 18px 48px}
+      .hero-right{height:320px}
+      nav.main-nav{display:none}
+      .mobile-toggle{display:inline-block}
+      .top-info .container{height:52px}
+      .contact-grid{grid-template-columns:1fr}
+      .nav-row{height:auto; padding:12px 18px}
     }
 
-    /* ---------- Small Animations ---------- */
-    .fade-in{opacity:0; transform:translateY(10px); transition:all 650ms cubic-bezier(.2,.9,.2,1)}
-    .in-view{opacity:1; transform:translateY(0)}
-    .pulse{animation:pulse 3s ease-in-out infinite}
-    @keyframes pulse{
-      0%{transform:translateY(0)}
-      50%{transform:translateY(-6px)}
-      100%{transform:translateY(0)}
-    }
-
-    /* ---------- small helpers ---------- */
-    .meta{font-size:13px; color:var(--muted)}
-    .logo-small{height:36px}
+    /* small helpers */
+    .muted-small{color:var(--muted); font-size:13px}
+    .dot-green{display:inline-block; width:10px; height:10px; background:var(--green); border-radius:50%}
   </style>
 </head>
 <body>
-  <header>
-    <div class="topbar container">
+
+  <!-- TOP INFO -->
+  <div class="top-info" aria-hidden="false">
+    <div class="container">
+      <div class="left">
+        <div class="muted-small">📞 <a href="tel:+918160181883">81601 81883</a></div>
+        <div class="muted-small">✉️ <a href="mailto:bharwaniandassociates@gmail.com">bharwaniandassociates@gmail.com</a></div>
+        <div class="muted-small">🏢 1, Galaxy Market, Near Navyug Tiles, Godi Road, Dahod, Gujarat 389151</div>
+      </div>
+      <div class="right">
+        <div class="socials" aria-hidden="true">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Twitter">t</a>
+          <a href="#" title="Linkedin">in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header class="main-header" role="banner">
+    <div class="nav-row container">
       <div class="brand">
-        <!-- Replace logo.png with your real logo file -->
+        <!-- PLACEHOLDER LOGO -->
         <img src="logo.png" alt="Bharwani and Associates logo" />
         <div>
           <h1>Bharwani and Associates</h1>
-          <div class="meta">Assurance | Compliance | Resolution</div>
+          <div class="tagline">Assurance | Compliance | Resolution</div>
         </div>
       </div>
 
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="tel:+918160181883">Call: 81601 81883</a>
+      <nav class="main-nav" role="navigation" aria-label="Primary">
+        <ul>
+          <li><a href="#home">Home</a></li>
+
+          <li class="dropdown">
+            <a href="#about">About ▾</a>
+            <div class="menu" aria-hidden="true">
+              <a href="#about">Our Firm</a>
+              <a href="#team">Leadership</a>
+            </div>
+          </li>
+
+          <li class="dropdown">
+            <a href="#services">Services ▾</a>
+            <div class="menu" aria-hidden="true">
+              <a href="#services">Audit & Assurance</a>
+              <a href="#services">Taxation</a>
+              <a href="#services">Transaction Advisory</a>
+              <a href="#services">Fundraising Support</a>
+            </div>
+          </li>
+
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#" class="btn-cta">Get in touch</a></li>
+        </ul>
       </nav>
+
+      <!-- Mobile toggle (shows on small screens) -->
+      <button class="mobile-toggle" aria-controls="mobileMenu" aria-expanded="false">Menu</button>
     </div>
   </header>
 
   <!-- HERO -->
-  <main class="container">
-    <section id="home" class="hero">
-      <div class="hero-grid">
-        <div>
-          <span class="kicker">Chartered Accountants</span>
-          <h2>Trusted financial assurance and advisory for growing businesses</h2>
-          <p class="lead">Bharwani and Associates provides independent audit & assurance, taxation advice, transaction guidance and fundraising support — helping businesses maintain compliance, improve governance and unlock capital with confidence.</p>
-          <div class="actions">
-            <a class="btn-primary" href="#contact">Get in touch</a>
-            <a class="btn-outline" href="#services">Our Services</a>
-          </div>
+  <main id="home" class="hero" role="main" aria-labelledby="hero-title">
+    <div class="hero-inner container">
+      <div class="hero-left">
+        <span class="kicker">Chartered Accountants</span>
+        <h2 id="hero-title" class="hero-title">
+          Proper Guidance<span class="dot">.</span><br>
+          Smarter Decisions<span class="dot">.</span><br>
+          Better Outcomes<span class="dot">.</span>
+        </h2>
+        <p class="hero-sub">Bharwani and Associates offers independent audit & assurance, taxation advisory, transaction support and fundraising guidance — helping organisations maintain compliance, strengthen governance and access capital with confidence.</p>
 
-          <div style="margin-top:18px" class="meta">Phone: <a href="tel:+918160181883">81601 81883</a> • Email: <a href="mailto:bharwaniandassociates@gmail.com">bharwaniandassociates@gmail.com</a></div>
+        <div class="hero-ctas">
+          <div class="pill orange" role="button" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Our Services</div>
+          <div class="pill white" role="button" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us</div>
         </div>
 
-        <div class="center" style="height:100%">
-          <!-- Replace office.jpg with your real office photo -->
-          <img src="office.jpg" alt="Office photo" style="width:100%; border-radius:12px; object-fit:cover; box-shadow:0 8px 28px rgba(11,61,145,0.08)" />
+        <!-- service quick buttons like the example -->
+        <div class="service-grid" style="margin-top:22px">
+          <div class="svc-btn"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> AUDIT</div>
+          <div class="svc-btn"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> DIRECT TAX</div>
+          <div class="svc-btn"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> TRANSACTION ADVISORY</div>
+          <div class="svc-btn"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> FUNDRAISING SUPPORT</div>
         </div>
+
       </div>
-    </section>
 
-    <!-- SERVICES -->
-    <section id="services">
-      <div class="section-title container">
+      <div class="hero-right" aria-hidden="true">
+        <!-- Placeholder for hero background image -->
+        <img src="hero.jpg" alt="Office / pattern background placeholder (replace hero.jpg)" />
+        <!-- overlay to produce pattern + blue tint -->
+        <div class="hero-overlay"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SERVICES -->
+  <section id="services" class="fade-up">
+    <div class="container">
+      <div class="section-head">
         <h3>Services</h3>
-        <div class="meta">Comprehensive, practical and compliance-focused solutions</div>
+        <div class="muted">Comprehensive, practical and compliance-focused solutions</div>
       </div>
 
-      <div class="container grid fade-in" >
+      <div class="cards">
         <div class="card">
           <h4>Audit & Assurance</h4>
-          <p class="muted">Statutory and internal audits designed to strengthen financial integrity and enhance stakeholder confidence. We focus on accuracy, transparency and actionable recommendations.</p>
+          <p class="muted">Statutory and internal audits that strengthen financial integrity and deliver transparency. We emphasise accuracy and actionable recommendations for improved reporting.</p>
         </div>
 
         <div class="card">
           <h4>Taxation</h4>
-          <p class="muted">End-to-end tax planning, compliance and dispute resolution — for corporate and individuals. Practical advice to optimise tax outcomes while staying compliant with changing regulations.</p>
+          <p class="muted">End-to-end tax planning, compliance and dispute resolution for corporates and individuals — practical advice to optimise tax outcomes while staying compliant.</p>
         </div>
 
         <div class="card">
           <h4>Transaction Advisory</h4>
-          <p class="muted">Due diligence, valuation support and deal structuring services to help clients navigate mergers, acquisitions and strategic partnerships with clarity.</p>
+          <p class="muted">Due diligence, valuation support and deal structuring to guide mergers, acquisitions and strategic transactions with clarity and confidence.</p>
         </div>
 
         <div class="card">
           <h4>Fundraising Support</h4>
-          <p class="muted">Financial modelling, investor-ready documentation and advisory support for equity and debt fundraising — aligning business needs with investor expectations.</p>
+          <p class="muted">Financial modelling, investor-ready documentation and advisory support for equity and debt fundraising — aligning business strategy with investor expectations.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="section-title container">
-        <h3>About Bharwani and Associates</h3>
-        <div class="meta">Independent. Practical. Trusted.</div>
+  <!-- ABOUT -->
+  <section id="about" class="fade-up" aria-labelledby="about-h">
+    <div class="container">
+      <div class="section-head">
+        <h3 id="about-h">About Bharwani and Associates</h3>
+        <div class="muted">Independent. Practical. Trusted.</div>
       </div>
 
-      <div class="container card fade-in" style="display:block;">
-        <p class="muted">Bharwani and Associates is a full-service chartered accountancy practice led by <strong>Bhavesh Bharwani</strong>. We partner with companies across industries to deliver reliable audit & assurance, pragmatic tax solutions, and clear transaction advice. Our approach is focused on compliance, governance and delivering measurable improvements to financial reporting and decision-making. We combine technical rigor with a client-first mindset to help businesses meet regulatory requirements and scale responsibly.</p>
+      <div class="card">
+        <p class="muted">Bharwani and Associates is a full-service chartered accountancy practice led by <strong>Bhavesh Bharwani</strong>. We partner with clients across industries to deliver compliance-driven audit & assurance, tax advisory, transaction guidance and fundraising support. Our focus is governance, clarity and measurable improvements in financial reporting and business outcomes.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- TEAM -->
-    <section id="team">
-      <div class="section-title container">
-        <h3>Our Team</h3>
-        <div class="meta">Experienced leadership</div>
+  <!-- TEAM -->
+  <section id="team" class="fade-up">
+    <div class="container">
+      <div class="section-head">
+        <h3>Team</h3>
+        <div class="muted">Experienced leadership</div>
       </div>
 
-      <div class="container card team-card fade-in">
+      <div class="team-card card">
         <div class="avatar">
-          <!-- If you have a portrait, replace avatar.jpg; fallback uses office.jpg -->
-          <img src="avatar.jpg" alt="Bhavesh Bharwani" onerror="this.src='office.jpg'">
+          <!-- placeholder avatar -->
+          <img src="avatar.jpg" alt="Bhavesh Bharwani — portrait placeholder" />
         </div>
-        <div class="person-info">
+        <div>
           <h4>Bhavesh Bharwani — Founder & Lead Partner</h4>
-          <p class="muted">A chartered accountant with hands-on experience in statutory audits, taxation, and transactional advisory. Bhavesh leads client engagements with an emphasis on accuracy, ethics, and practical outcomes.</p>
-          <div style="margin-top:10px">
-            <a href="mailto:bharwaniandassociates@gmail.com" class="meta">bharwaniandassociates@gmail.com</a> • <a href="tel:+918160181883" class="meta">81601 81883</a>
-          </div>
+          <p class="muted">A chartered accountant with hands-on experience in statutory audits, taxation and transactional advisory. Bhavesh leads engagements with technical rigour and a practical outlook to support client growth and compliance.</p>
+          <div style="margin-top:10px" class="muted-small">📞 <a href="tel:+918160181883">81601 81883</a> • ✉️ <a href="mailto:bharwaniandassociates@gmail.com">bharwaniandassociates@gmail.com</a></div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="section-title container">
+  <!-- CONTACT -->
+  <section id="contact" class="fade-up">
+    <div class="container">
+      <div class="section-head">
         <h3>Contact & Location</h3>
-        <div class="meta">Reach out for a consultation or an appointment</div>
+        <div class="muted">Reach out for a consultation or appointment</div>
       </div>
 
-      <div class="container contact-grid">
-        <div class="contact-card fade-in">
+      <div class="contact-grid">
+        <div class="card">
           <h4>Get in touch</h4>
-          <p class="muted">We respond promptly to enquiries — call or email to schedule an appointment.</p>
+          <p class="muted">We respond promptly — call or email to schedule an appointment.</p>
 
-          <ul class="contact-list" style="margin-top:12px">
+          <ul style="margin-top:12px; padding-left:0; list-style:none">
             <li><strong>Phone:</strong> <a href="tel:+918160181883">81601 81883</a></li>
             <li><strong>Email:</strong> <a href="mailto:bharwaniandassociates@gmail.com">bharwaniandassociates@gmail.com</a></li>
             <li><strong>Address:</strong> 1, Galaxy Market, Near Navyug Tiles, Godi Road, Dahod, Gujarat, 389151</li>
@@ -236,79 +352,73 @@
             <input name="name" placeholder="Your name" required style="padding:10px;border-radius:8px;border:1px solid #e6eefc" />
             <input name="email" placeholder="Email" required style="padding:10px;border-radius:8px;border:1px solid #e6eefc" />
             <textarea name="message" placeholder="How can we help?" rows="4" style="padding:10px;border-radius:8px;border:1px solid #e6eefc"></textarea>
-            <button type="submit" class="btn-primary" style="width:140px">Send Message</button>
-            <div id="formMsg" class="meta" style="display:none"></div>
+            <div style="display:flex; gap:10px; align-items:center">
+              <button type="submit" class="pill orange" style="border:none; cursor:pointer">Send Message</button>
+              <div class="muted-small">Or email: <a href="mailto:bharwaniandassociates@gmail.com">bharwaniandassociates@gmail.com</a></div>
+            </div>
+            <div id="formMsg" class="muted-small" style="display:none"></div>
           </form>
         </div>
 
-        <div>
-          <!-- Live Google Map embedding - pins your address -->
-          <iframe class="map-iframe fade-in"
+        <div class="map">
+          <!-- Live Google map iframe (pins the address) -->
+          <iframe
             src="https://www.google.com/maps?q=1,+Galaxy+Market,+Near+Navyug+Tiles,+Godi+Road,+Dahod,+Gujarat,+389151&output=embed"
-            allowfullscreen="" loading="lazy"></iframe>
+            width="600" height="420" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
-    </section>
 
-    <footer>
-      <div class="container meta">
-        © <span id="year"></span> Bharwani and Associates • 1, Galaxy Market, Near Navyug Tiles, Godi Road, Dahod, Gujarat 389151 • <a href="mailto:bharwaniandassociates@gmail.com">bharwaniandassociates@gmail.com</a>
-      </div>
-    </footer>
-  </main>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container muted-small">
+      © <span id="year"></span> Bharwani and Associates • 1, Galaxy Market, Near Navyug Tiles, Godi Road, Dahod, Gujarat 389151 • <a href="mailto:bharwaniandassociates@gmail.com">bharwaniandassociates@gmail.com</a>
+    </div>
+  </footer>
 
   <script>
-    // inject current year
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Smooth scroll for anchor links
+    // Intersection Observer for subtle in-view animations
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('in-view');
+      });
+    }, {threshold:0.12});
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+    // Contact form: mailto fallback (no backend)
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = this.name.value.trim();
+      const email = this.email.value.trim();
+      const message = this.message.value.trim();
+      const subject = encodeURIComponent('Website enquiry from ' + name);
+      const body = encodeURIComponent(message + '\n\nContact email: ' + email);
+      window.location.href = `mailto:bharwaniandassociates@gmail.com?subject=${subject}&body=${body}`;
+      const msg = document.getElementById('formMsg');
+      msg.style.display='block';
+      msg.textContent = 'Opening your email client to send the message. Or email bharwaniandassociates@gmail.com directly.';
+    });
+
+    // Mobile menu toggle (basic)
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    mobileToggle && mobileToggle.addEventListener('click', ()=>{
+      const nav = document.querySelector('nav.main-nav');
+      if(nav.style.display === 'flex'){ nav.style.display = 'none'; mobileToggle.textContent='Menu'; }
+      else { nav.style.display = 'flex'; nav.style.flexDirection='column'; nav.style.background='linear-gradient(90deg,var(--blue-900),var(--blue-700))'; nav.style.position='absolute'; nav.style.right='18px'; nav.style.top='78px'; nav.style.padding='12px'; nav.style.borderRadius='10px'; mobileToggle.textContent='Close'; }
+    });
+
+    // Smooth scrolling for internal anchors
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', function(e){
         const target = document.querySelector(this.getAttribute('href'));
         if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
       });
     });
-
-    // basic intersection observer to add in-view class for fade-in elements
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(en=>{
-        if(en.isIntersecting) en.target.classList.add('in-view');
-      });
-    }, {threshold:0.12});
-    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
-
-    // lightweight contact form behavior (no backend)
-    document.getElementById('contactForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      // show message with mailto fallback
-      const name = this.name.value.trim();
-      const email = this.email.value.trim();
-      const message = this.message.value.trim();
-      // fallback: open mail client
-      const subject = encodeURIComponent('Website enquiry from ' + name);
-      const body = encodeURIComponent(message + '\\n\\nContact email: ' + email);
-      window.location.href = `mailto:bharwaniandassociates@gmail.com?subject=${subject}&body=${body}`;
-      document.getElementById('formMsg').style.display='block';
-      document.getElementById('formMsg').textContent = 'Opening your email client to send the message. Alternatively email bharwaniandassociates@gmail.com directly.';
-    });
-
-    // small mobile nav hint (since nav hides on small screens)
-    // Show a floating call button on mobile
-    function createMobileCall(){
-      if(window.innerWidth <= 960 && !document.getElementById('mobileCall')){
-        const btn = document.createElement('a');
-        btn.href = 'tel:+918160181883';
-        btn.id = 'mobileCall';
-        btn.className = 'cta';
-        btn.textContent = 'Call: 81601 81883';
-        Object.assign(btn.style, {
-          position:'fixed', right:'16px', bottom:'16px', zIndex:80, padding:'12px 14px', borderRadius:'12px'
-        });
-        document.body.appendChild(btn);
-      }
-    }
-    createMobileCall();
-    window.addEventListener('resize', createMobileCall);
   </script>
 </body>
 </html>
+
