@@ -200,13 +200,13 @@
             font-size: 0.8rem;
         }
         
-        /* Dropdown Styles */
+        /* Vertical Dropdown Styles */
         .dropdown {
             position: absolute;
             top: 100%;
             left: 0;
             background-color: white;
-            min-width: 220px;
+            min-width: 250px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             border-radius: 4px;
             opacity: 0;
@@ -214,6 +214,8 @@
             transform: translateY(10px);
             transition: all 0.3s ease;
             z-index: 100;
+            max-height: 400px;
+            overflow-y: auto;
         }
         
         nav ul li:hover .dropdown {
@@ -463,6 +465,44 @@
             border: none;
         }
         
+        /* Contact Form */
+        .contact-form {
+            background-color: var(--light);
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
         /* Footer */
         footer {
             background-color: var(--primary);
@@ -512,6 +552,54 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
+        }
+        
+        /* Page Content Styles */
+        .page-content {
+            padding: 100px 0 80px;
+        }
+        
+        .page-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            margin-bottom: 50px;
+        }
+        
+        .content-section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .content-section p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+        
+        .content-section ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .content-section ul li {
+            margin-bottom: 10px;
+            color: var(--gray);
         }
         
         /* Responsive Styles */
@@ -571,6 +659,8 @@
                 background-color: rgba(255, 255, 255, 0.1);
                 margin-top: 10px;
                 display: none;
+                max-height: 300px;
+                overflow-y: auto;
             }
             
             nav ul li:hover .dropdown {
@@ -598,6 +688,10 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
@@ -623,67 +717,67 @@
                 </div>
                 <nav>
                     <ul id="nav-menu">
-                        <li><a href="#home">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li>
                             <a href="#about">About <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown">
-                                <li><a href="#key-differentiators">Key Differentiators</a></li>
-                                <li><a href="#core-values">Core Values</a></li>
-                                <li><a href="#social-responsibilities">Social Responsibilities</a></li>
+                                <li><a href="key-differentiators.html">Key Differentiators</a></li>
+                                <li><a href="core-values.html">Core Values</a></li>
+                                <li><a href="social-responsibilities.html">Social Responsibilities</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#audit-services">Audit Services <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown">
-                                <li><a href="#gst-audit">GST Audit</a></li>
-                                <li><a href="#statutory-audit">Statutory Audit</a></li>
-                                <li><a href="#tax-audit">Tax Audit</a></li>
-                                <li><a href="#internal-audit">Internal Audit</a></li>
-                                <li><a href="#concurrent-audit">Concurrent Audit</a></li>
-                                <li><a href="#management-audit">Management Audit</a></li>
-                                <li><a href="#compliance-audit">Compliance Audit</a></li>
+                                <li><a href="gst-audit.html">GST Audit</a></li>
+                                <li><a href="statutory-audit.html">Statutory Audit</a></li>
+                                <li><a href="tax-audit.html">Tax Audit</a></li>
+                                <li><a href="internal-audit.html">Internal Audit</a></li>
+                                <li><a href="concurrent-audit.html">Concurrent Audit</a></li>
+                                <li><a href="management-audit.html">Management Audit</a></li>
+                                <li><a href="compliance-audit.html">Compliance Audit</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#direct-tax">Direct Tax <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown">
-                                <li><a href="#income-tax">Income Tax</a></li>
-                                <li><a href="#corporate-tax">Corporate Tax</a></li>
-                                <li><a href="#international-tax">International Tax</a></li>
-                                <li><a href="#transfer-pricing">Transfer Pricing</a></li>
-                                <li><a href="#dtaa">DTAA</a></li>
-                                <li><a href="#nri-taxation">NRI Taxation</a></li>
-                                <li><a href="#certification-services">Certification Services</a></li>
+                                <li><a href="income-tax.html">Income Tax</a></li>
+                                <li><a href="corporate-tax.html">Corporate Tax</a></li>
+                                <li><a href="international-tax.html">International Tax</a></li>
+                                <li><a href="transfer-pricing.html">Transfer Pricing</a></li>
+                                <li><a href="dtaa.html">DTAA</a></li>
+                                <li><a href="nri-taxation.html">NRI Taxation</a></li>
+                                <li><a href="certification-services.html">Certification Services</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#indirect-taxes">Indirect Taxes <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown">
-                                <li><a href="#gst">GST</a></li>
-                                <li><a href="#gst-compliance">GST Compliance</a></li>
-                                <li><a href="#gst-due-diligence">GST Due Diligence</a></li>
-                                <li><a href="#gst-opinion">GST Opinion</a></li>
-                                <li><a href="#gst-classification">GST Classification</a></li>
-                                <li><a href="#gst-litigation">GST Litigation</a></li>
-                                <li><a href="#gst-search">GST Search/Inquiry Support</a></li>
-                                <li><a href="#eway-bill">E-way Bill Consultancy</a></li>
-                                <li><a href="#gst-refund">GST Refund</a></li>
+                                <li><a href="gst.html">GST</a></li>
+                                <li><a href="gst-compliance.html">GST Compliance</a></li>
+                                <li><a href="gst-due-diligence.html">GST Due Diligence</a></li>
+                                <li><a href="gst-opinion.html">GST Opinion</a></li>
+                                <li><a href="gst-classification.html">GST Classification</a></li>
+                                <li><a href="gst-litigation.html">GST Litigation</a></li>
+                                <li><a href="gst-search.html">GST Search/Inquiry Support</a></li>
+                                <li><a href="eway-bill.html">E-way Bill Consultancy</a></li>
+                                <li><a href="gst-refund.html">GST Refund</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#cfo-services">CFO Services <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown">
-                                <li><a href="#accounting-outsourcing">Accounting Outsourcing Services</a></li>
-                                <li><a href="#bookkeeping">Outsourced Bookkeeping Services</a></li>
-                                <li><a href="#payroll">Payroll Outsourcing</a></li>
-                                <li><a href="#budgeting">Outsourced Budgeting and MIS Reporting</a></li>
+                                <li><a href="accounting-outsourcing.html">Accounting Outsourcing Services</a></li>
+                                <li><a href="bookkeeping.html">Outsourced Bookkeeping Services</a></li>
+                                <li><a href="payroll.html">Payroll Outsourcing</a></li>
+                                <li><a href="budgeting.html">Outsourced Budgeting and MIS Reporting</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#resources">Resources <i class="fas fa-chevron-down"></i></a>
                             <ul class="dropdown">
-                                <li><a href="#blog">Blog</a></li>
-                                <li><a href="#news">News and Updates</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="news.html">News and Updates</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -767,6 +861,36 @@
                         <a href="#contact" class="btn">Learn More</a>
                     </div>
                 </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>GST Services</h3>
+                        <p>Complete GST compliance, registration, return filing, and advisory services to ensure your business stays compliant.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>CFO Services</h3>
+                        <p>Outsourced financial leadership including accounting, bookkeeping, payroll, and strategic financial planning.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Legal Compliance</h3>
+                        <p>Ensuring your business meets all statutory and regulatory requirements with comprehensive compliance services.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -827,9 +951,43 @@
                             </div>
                         </div>
                     </div>
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.282946441239!2d74.25226077499086!3d22.342668739298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39601c7b6e5b4c9b%3A0x6d8e3e3e3e3e3e3e!2s1%2C%20Galaxy%20Market%2C%20Near%20Navyug%20Tiles%2C%20Godi%20Road%2C%20Dahod%2C%20Gujarat%20389151!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
-                <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.282946441239!2d74.25226077499086!3d22.342668739298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39601c7b6e5b4c9b%3A0x6d8e3e3e3e3e3e3e!2s1%2C%20Galaxy%20Market%2C%20Near%20Navyug%20Tiles%2C%20Godi%20Road%2C%20Dahod%2C%20Gujarat%20389151!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Your Phone</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" class="form-control">
+                                <option value="">Select a service</option>
+                                <option value="taxation">Taxation</option>
+                                <option value="audit">Audit & Assurance</option>
+                                <option value="gst">GST Services</option>
+                                <option value="cfo">CFO Services</option>
+                                <option value="advisory">Business Advisory</option>
+                                <option value="compliance">Legal Compliance</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -927,6 +1085,13 @@
                 }
             });
         }
+        
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
     </script>
 </body>
 </html>
