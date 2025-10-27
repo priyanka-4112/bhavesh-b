@@ -161,6 +161,7 @@
         }
         
         nav ul li {
+            position: relative;
             margin-left: 25px;
         }
         
@@ -170,6 +171,9 @@
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
         }
         
         nav ul li a:hover {
@@ -179,7 +183,7 @@
         nav ul li a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
@@ -189,6 +193,55 @@
         
         nav ul li a:hover::after {
             width: 100%;
+        }
+        
+        nav ul li a i {
+            margin-left: 5px;
+            font-size: 0.8rem;
+        }
+        
+        /* Dropdown Styles */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        nav ul li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown li {
+            margin: 0;
+            width: 100%;
+        }
+        
+        .dropdown li a {
+            color: var(--dark);
+            padding: 12px 20px;
+            display: block;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s;
+        }
+        
+        .dropdown li a:hover {
+            background-color: var(--light);
+            color: var(--primary);
+        }
+        
+        .dropdown li:last-child a {
+            border-bottom: none;
         }
         
         .mobile-menu {
@@ -470,6 +523,10 @@
             .contact-container {
                 flex-direction: column;
             }
+            
+            nav ul li {
+                margin-left: 15px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -502,6 +559,27 @@
             
             nav ul li {
                 margin: 10px 0;
+                width: 100%;
+            }
+            
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: rgba(255, 255, 255, 0.1);
+                margin-top: 10px;
+                display: none;
+            }
+            
+            nav ul li:hover .dropdown {
+                display: block;
+            }
+            
+            .dropdown li a {
+                color: white;
+                padding-left: 30px;
             }
             
             .mobile-menu {
@@ -546,10 +624,68 @@
                 <nav>
                     <ul id="nav-menu">
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#team">Team</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li>
+                            <a href="#about">About <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="#key-differentiators">Key Differentiators</a></li>
+                                <li><a href="#core-values">Core Values</a></li>
+                                <li><a href="#social-responsibilities">Social Responsibilities</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#audit-services">Audit Services <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="#gst-audit">GST Audit</a></li>
+                                <li><a href="#statutory-audit">Statutory Audit</a></li>
+                                <li><a href="#tax-audit">Tax Audit</a></li>
+                                <li><a href="#internal-audit">Internal Audit</a></li>
+                                <li><a href="#concurrent-audit">Concurrent Audit</a></li>
+                                <li><a href="#management-audit">Management Audit</a></li>
+                                <li><a href="#compliance-audit">Compliance Audit</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#direct-tax">Direct Tax <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="#income-tax">Income Tax</a></li>
+                                <li><a href="#corporate-tax">Corporate Tax</a></li>
+                                <li><a href="#international-tax">International Tax</a></li>
+                                <li><a href="#transfer-pricing">Transfer Pricing</a></li>
+                                <li><a href="#dtaa">DTAA</a></li>
+                                <li><a href="#nri-taxation">NRI Taxation</a></li>
+                                <li><a href="#certification-services">Certification Services</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#indirect-taxes">Indirect Taxes <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="#gst">GST</a></li>
+                                <li><a href="#gst-compliance">GST Compliance</a></li>
+                                <li><a href="#gst-due-diligence">GST Due Diligence</a></li>
+                                <li><a href="#gst-opinion">GST Opinion</a></li>
+                                <li><a href="#gst-classification">GST Classification</a></li>
+                                <li><a href="#gst-litigation">GST Litigation</a></li>
+                                <li><a href="#gst-search">GST Search/Inquiry Support</a></li>
+                                <li><a href="#eway-bill">E-way Bill Consultancy</a></li>
+                                <li><a href="#gst-refund">GST Refund</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#cfo-services">CFO Services <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="#accounting-outsourcing">Accounting Outsourcing Services</a></li>
+                                <li><a href="#bookkeeping">Outsourced Bookkeeping Services</a></li>
+                                <li><a href="#payroll">Payroll Outsourcing</a></li>
+                                <li><a href="#budgeting">Outsourced Budgeting and MIS Reporting</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#resources">Resources <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="#blog">Blog</a></li>
+                                <li><a href="#news">News and Updates</a></li>
+                            </ul>
+                        </li>
                     </ul>
                     <div class="mobile-menu" id="mobile-menu">
                         <i class="fas fa-bars"></i>
@@ -726,9 +862,10 @@
                 <div class="footer-column">
                     <h3>Our Services</h3>
                     <ul>
-                        <li><a href="#services">Taxation</a></li>
-                        <li><a href="#services">Audit & Assurance</a></li>
-                        <li><a href="#services">Business Advisory</a></li>
+                        <li><a href="#audit-services">Audit Services</a></li>
+                        <li><a href="#direct-tax">Direct Tax</a></li>
+                        <li><a href="#indirect-taxes">Indirect Taxes</a></li>
+                        <li><a href="#cfo-services">CFO Services</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -772,6 +909,24 @@
                 }
             });
         });
+        
+        // Mobile dropdown functionality
+        if (window.innerWidth <= 768) {
+            const navItems = document.querySelectorAll('nav ul li');
+            navItems.forEach(item => {
+                if (item.querySelector('.dropdown')) {
+                    const link = item.querySelector('a');
+                    link.addEventListener('click', function(e) {
+                        if (!this.nextElementSibling.style.display || this.nextElementSibling.style.display === 'none') {
+                            this.nextElementSibling.style.display = 'block';
+                        } else {
+                            this.nextElementSibling.style.display = 'none';
+                        }
+                        e.preventDefault();
+                    });
+                }
+            });
+        }
     </script>
 </body>
 </html>
