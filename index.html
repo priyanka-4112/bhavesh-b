@@ -603,6 +603,125 @@
             margin-bottom: 10px;
             color: var(--gray);
         }
+        /* === Contact Section Fix === */
+.contact {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  flex: 1 1 45%;
+}
+
+.contact-form {
+  flex: 1 1 45%;
+  background-color: #f9fbfd;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Left side info */
+.contact-info h3 {
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.contact-detail i {
+  font-size: 20px;
+  color: var(--secondary);
+}
+
+.contact-detail h4 {
+  margin: 0;
+  color: var(--primary);
+}
+
+.contact-detail p {
+  margin: 5px 0 0;
+  line-height: 1.6;
+  color: var(--gray);
+}
+
+/* Form */
+.contact-form h3 {
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.contact-form .form-control,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.contact-form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.contact-form .btn {
+  background: var(--secondary);
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.contact-form .btn:hover {
+  background: #d89b1c;
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-info,
+  .contact-form {
+    flex: 1 1 100%;
+  }
+}
+
         
         /* Responsive Styles */
         @media (max-width: 992px) {
