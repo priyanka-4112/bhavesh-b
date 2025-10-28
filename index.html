@@ -891,44 +891,115 @@
       ></iframe>
     </div>
 
-    <!-- Contact form -->
-    <div class="contact-form">
-      <h3>Send us a Message</h3>
-      <form id="contactForm">
-        <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" class="form-control" required>
+   <div style="max-width:1100px;margin:28px auto;padding:18px;box-sizing:border-box;">
+
+    <!-- Heading -->
+    <h2 style="margin:0 0 16px 0;font-size:20px;">Contact Us</h2>
+
+    <!-- Flex container (inline styles only) -->
+    <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start;">
+
+      <!-- Form column -->
+      <div style="flex:1 1 320px;min-width:300px;background:white;padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(16,24,40,0.06);">
+        <form id="contactForm" action="#" method="post" style="display:flex;flex-direction:column;gap:12px;">
+          <label for="name" style="font-size:13px;color:#333;">Name</label>
+          <input id="name" name="name" type="text" required
+                 placeholder="Your full name"
+                 style="padding:10px 12px;border:1px solid #d7dbe6;border-radius:8px;font-size:14px;outline:none;box-sizing:border-box;"
+          />
+
+          <label for="phone" style="font-size:13px;color:#333;">Phone number</label>
+          <input id="phone" name="phone" type="tel" required
+                 placeholder="e.g. 9876543210"
+                 pattern="\d{10}" title="Enter 10 digit phone number"
+                 style="padding:10px 12px;border:1px solid #d7dbe6;border-radius:8px;font-size:14px;outline:none;box-sizing:border-box;"
+          />
+
+          <label for="message" style="font-size:13px;color:#333;">Message</label>
+          <textarea id="message" name="message" rows="5" required
+                    placeholder="Write your message..."
+                    style="padding:10px 12px;border:1px solid #d7dbe6;border-radius:8px;font-size:14px;resize:vertical;outline:none;box-sizing:border-box;"></textarea>
+
+          <div style="display:flex;gap:10px;align-items:center;">
+            <button type="submit"
+                    style="background:#4a44c9;color:white;border:none;padding:10px 16px;border-radius:8px;font-weight:600;cursor:pointer;box-shadow:0 6px 12px rgba(74,68,201,0.18);">
+              Send
+            </button>
+
+            <button type="reset"
+                    style="background:transparent;border:1px solid #cfd6ee;padding:8px 12px;border-radius:8px;cursor:pointer;">
+              Reset
+            </button>
+          </div>
+
+          <!-- simple inline feedback area -->
+          <div id="formMessage" role="status" aria-live="polite" style="font-size:13px;color:#0b76d1;margin-top:6px;"></div>
+        </form>
+      </div>
+
+      <!-- Map column -->
+      <div style="flex:1 1 360px;min-width:300px;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(16,24,40,0.06);background:white;">
+        <!-- Container header -->
+        <div style="padding:12px 14px;border-bottom:1px solid #eef0f7;font-size:14px;font-weight:600;">
+          Location
         </div>
-        <div class="form-group">
-          <label for="email">Your Email</label>
-          <input type="email" id="email" class="form-control" required>
+
+        <!-- Google Maps embed iframe (uses query) -->
+        <iframe
+          title="Map - 1, Galaxy Market, Dahod, Gujarat"
+          src="https://maps.google.com/maps?q=1%2C%20Galaxy%20Market%2C%20Near%20Navyug%20Tiles%2C%20Godi%20Road%2C%20Dahod%2C%20Gujarat%2C%20389151&output=embed"
+          style="width:100%;height:360px;border:0;display:block;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <!-- Small address footer -->
+        <div style="padding:10px 14px;font-size:13px;color:#444;border-top:1px solid #eef0f7;">
+          1, Galaxy Market, Near Navyug Tiles, Godi Road, Dahod, Gujarat, 389151
         </div>
-        <div class="form-group">
-          <label for="phone">Your Phone</label>
-          <input type="tel" id="phone" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="service">Service Interested In</label>
-          <select id="service" class="form-control">
-            <option value="">Select a service</option>
-            <option value="taxation">Taxation</option>
-            <option value="audit">Audit & Assurance</option>
-            <option value="gst">GST Services</option>
-            <option value="cfo">CFO Services</option>
-            <option value="advisory">Business Advisory</option>
-            <option value="compliance">Legal Compliance</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Your Message</label>
-          <textarea id="message" class="form-control" required></textarea>
-        </div>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
+      </div>
+
     </div>
   </div>
-</section>
 
+  <!-- Inline JS to handle submit (keeps everything client-side) -->
+  <script>
+    (function(){
+      var form = document.getElementById('contactForm');
+      var msg = document.getElementById('formMessage');
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault(); // remove if you want real form submission
+        var data = {
+          name: form.name.value.trim(),
+          phone: form.phone.value.trim(),
+          message: form.message.value.trim()
+        };
+
+        if (!data.name || !data.phone || !data.message) {
+          msg.style.color = '#d9534f';
+          msg.textContent = 'Please fill out all fields.';
+          return;
+        }
+
+        // Simple phone pattern check (10 digits)
+        if (!/^\d{10}$/.test(data.phone)) {
+          msg.style.color = '#d9534f';
+          msg.textContent = 'Please enter a valid 10-digit phone number.';
+          return;
+        }
+
+        // Simulate sending — replace with fetch()/XHR to your server endpoint if needed
+        msg.style.color = '#0b76d1';
+        msg.textContent = 'Sending...';
+
+        setTimeout(function(){
+          msg.style.color = '#1b7a3d';
+          msg.textContent = 'Message sent — thanks! (This is a demo; wire up a server to process submissions.)';
+          form.reset();
+        }, 800);
+      });
+    })();
+  </script>
     <!-- Footer -->
     <footer>
         <div class="container">
