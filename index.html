@@ -1,44 +1,1049 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Home | Bharwani & Associates</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharwani & Associates | Assurance | Compliance | Resolution</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1a3a5f;
+            --secondary: #d4af37;
+            --accent: #2c5aa0;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: var(--secondary);
+            color: var(--primary);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #c19d2e;
+            transform: translateY(-2px);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        .contact-info i {
+            margin-right: 8px;
+            color: var(--secondary);
+        }
+        
+        .social-links a {
+            color: white;
+            margin-left: 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            position: relative;
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        nav ul li a i {
+            margin-left: 5px;
+            font-size: 0.8rem;
+        }
+        
+        /* Vertical Dropdown Styles */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            max-height: 400px;
+            overflow-y: auto;
+            display: block;
+            flex-direction: column;
+        }
+        
+        nav ul li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown li {
+            margin: 0;
+            width: 100%;
+        }
+        
+        .dropdown li a {
+            color: var(--dark);
+            padding: 12px 20px;
+            display: block;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s;
+        }
+        
+        .dropdown li a:hover {
+            background-color: var(--light);
+            color: var(--primary);
+        }
+        
+        .dropdown li:last-child a {
+            border-bottom: none;
+        }
+        
+        .mobile-menu {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 58, 95, 0.8), rgba(26, 58, 95, 0.9)), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .hero-btns .btn {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        
+        .hero-btns .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary);
+            color: white;
+        }
+        
+        .hero-btns .btn-outline:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--light);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            background-color: var(--primary);
+            color: white;
+            font-size: 2.5rem;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        /* Team Section */
+        .team {
+            background-color: var(--light);
+        }
+        
+        .team-member {
+            text-align: center;
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid var(--light);
+        }
+        
+        .team-member h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .team-member p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+       
+        .map {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+        
+      
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Page Content Styles */
+        .page-content {
+            padding: 100px 0 80px;
+        }
+        
+        .page-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            margin-bottom: 50px;
+        }
+        
+        .content-section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .content-section p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+        
+        .content-section ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .content-section ul li {
+            margin-bottom: 10px;
+            color: var(--gray);
+        }
+       
+
+/* Responsive layout for mobile */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-info,
+  .contact-form {
+    flex: 1 1 100%;
+  }
+}
+
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+                width: 100%;
+            }
+            
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: rgba(255, 255, 255, 0.1);
+                margin-top: 10px;
+                display: none;
+                max-height: 300px;
+                overflow-y: auto;
+            }
+            
+            nav ul li:hover .dropdown {
+                display: block;
+            }
+            
+            .dropdown li a {
+                color: white;
+                padding-left: 30px;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+           
+
+
+/* Map neatly below the contact details */
+.map {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+  .map {
+    height: 250px;
+  }
+}
+
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="logo"><h1>Bharwani <span>& Associates</span></h1></div>
-      <nav>
-        <ul>
-          <li><a class="home" href="index.html">Home</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="contact-info">
+                    <div><i class="fas fa-phone"></i> 81601 81883</div>
+                    <div><i class="fas fa-envelope"></i> bharwaniandassociates@gmail.com</div>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="header-main">
+                <div class="logo">
+                    <h1>Bharwani <span>& Associates</span></h1>
+                </div>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li>
+                            <a href="#about">About <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="key-differentiators.html">Key Differentiators</a></li>
+                                <li><a href="core-values.html">Core Values</a></li>
+                                <li><a href="social-responsibilities.html">Social Responsibilities</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#audit-services">Audit Services <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="gst-audit.html">GST Audit</a></li>
+                                <li><a href="statutory-audit.html">Statutory Audit</a></li>
+                                <li><a href="tax-audit.html">Tax Audit</a></li>
+                                <li><a href="internal-audit.html">Internal Audit</a></li>
+                                <li><a href="concurrent-audit.html">Concurrent Audit</a></li>
+                                <li><a href="management-audit.html">Management Audit</a></li>
+                                <li><a href="compliance-audit.html">Compliance Audit</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#direct-tax">Direct Tax <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="income-tax.html">Income Tax</a></li>
+                                <li><a href="corporate-tax.html">Corporate Tax</a></li>
+                                <li><a href="international-tax.html">International Tax</a></li>
+                                <li><a href="transfer-pricing.html">Transfer Pricing</a></li>
+                                <li><a href="dtaa.html">DTAA</a></li>
+                                <li><a href="nri-taxation.html">NRI Taxation</a></li>
+                                <li><a href="certification-services.html">Certification Services</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#indirect-taxes">Indirect Taxes <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="gst.html">GST</a></li>
+                                <li><a href="gst-compliance.html">GST Compliance</a></li>
+                                <li><a href="gst-due-diligence.html">GST Due Diligence</a></li>
+                                <li><a href="gst-opinion.html">GST Opinion</a></li>
+                                <li><a href="gst-classification.html">GST Classification</a></li>
+                                <li><a href="gst-litigation.html">GST Litigation</a></li>
+                                <li><a href="gst-search.html">GST Search/Inquiry Support</a></li>
+                                <li><a href="eway-bill.html">E-way Bill Consultancy</a></li>
+                                <li><a href="gst-refund.html">GST Refund</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#cfo-services">CFO Services <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="accounting-outsourcing.html">Accounting Outsourcing Services</a></li>
+                                <li><a href="bookkeeping.html">Outsourced Bookkeeping Services</a></li>
+                                <li><a href="payroll.html">Payroll Outsourcing</a></li>
+                                <li><a href="budgeting.html">Outsourced Budgeting and MIS Reporting</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#resources">Resources <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="news.html">News and Updates</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="mobile-menu" id="mobile-menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-  <section class="page-header">
-    <div class="container">
-      <h1>Home</h1>
-      <p>Welcome to Bharwani & Associates — Professional Financial Solutions</p>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Professional Financial Solutions</h2>
+            <p>Assurance | Compliance | Resolution</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn">Get In Touch</a>
+                <a href="#services" class="btn btn-outline">Our Services</a>
+            </div>
+        </div>
+    </section>
 
-  <section class="page-content">
-    <div class="container">
-      <div class='card'><h2>Overview</h2><p>Home - Our firm offers tailored, practical and compliant solutions designed to minimise risk and add value. We combine technical expertise with pragmatic business understanding to deliver clear outcomes.</p></div><div class='card'><h2>Services</h2><ul><li>Advisory and compliance support tailored to your organisation.</li><li>Practical implementation assistance and reporting.</li><li>Risk identification and mitigation strategies.</li></ul></div><div class='card'><h2>Why Choose Us?</h2><p>Experienced professionals, timely delivery, and a client-first approach. We prioritise clear communication, confidentiality, and measurable results for every engagement.</p></div>
-      <div class="card">
-        <h2>Contact Our Team</h2>
-        <p>Need help with home? Our experts are ready to assist. <a class="contact-cta" href="index.html#contact">Get in touch</a></p>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Bharwani & Associates is a leading firm providing comprehensive financial and business advisory services with a commitment to excellence and client satisfaction.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Your Trusted Financial Partners</h3>
+                    <p>With years of experience in the industry, Bharwani & Associates has established itself as a reliable partner for businesses and individuals seeking professional financial guidance.</p>
+                    <p>Our team of experts is dedicated to providing tailored solutions that meet your unique needs and help you achieve your financial goals.</p>
+                    <p>We believe in building long-term relationships with our clients based on trust, integrity, and exceptional service.</p>
+                    <a href="#contact" class="btn">Contact Us</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bharwani & Associates Office">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer a comprehensive range of financial services to help your business thrive in today's competitive environment.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Taxation</h3>
+                        <p>Comprehensive tax planning and compliance services to optimize your tax position while ensuring full regulatory compliance.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Audit & Assurance</h3>
+                        <p>Thorough audit services that provide confidence in your financial statements and help identify areas for improvement.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Business Advisory</h3>
+                        <p>Strategic advice to help you make informed business decisions, improve operations, and achieve sustainable growth.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>GST Services</h3>
+                        <p>Complete GST compliance, registration, return filing, and advisory services to ensure your business stays compliant.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>CFO Services</h3>
+                        <p>Outsourced financial leadership including accounting, bookkeeping, payroll, and strategic financial planning.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Legal Compliance</h3>
+                        <p>Ensuring your business meets all statutory and regulatory requirements with comprehensive compliance services.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Team</h2>
+                <p>Meet the dedicated professionals who are committed to delivering exceptional service and results.</p>
+            </div>
+            <div class="team-member">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Bhavesh Bharwani">
+                <h3>Bhavesh Bharwani</h3>
+                <p>Principal & Managing Partner</p>
+                <p>With over 15 years of experience in financial services, Bhavesh leads our firm with a vision for excellence and client-centric solutions.</p>
+            </div>
+        </div>
+    </section>
+
+   <!-- Contact Section -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>Get in touch with us for all your financial service needs. We're here to help you succeed.</p>
+    </div>
+
+    <!-- Map container -->
+    
+
+   <div style="max-width:1100px;margin:28px auto;padding:18px;box-sizing:border-box;">
+
+    <!-- Heading -->
+    <h2 style="margin:0 0 16px 0;font-size:20px;">Contact Us</h2>
+
+    <!-- Flex container (inline styles only) -->
+    <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start;">
+
+      <!-- Form column -->
+      <div style="flex:1 1 320px;min-width:300px;background:white;padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(16,24,40,0.06);">
+        <form
+          id="contactForm"
+          method="GET"
+          action="mailto:bharwaniandassociates@gmail.com"
+          enctype="text/plain"
+          style="display:flex;flex-direction:column;gap:12px;">
+
+          <label for="name" style="font-size:14px;">Name</label>
+          <input type="text" id="name" name="Name" placeholder="Your name" required
+            style="padding:10px;border:1px solid #ccc;border-radius:6px;font-size:14px;">
+
+          <label for="phone" style="font-size:14px;">Phone</label>
+          <input type="tel" id="phone" name="Phone" placeholder="Your phone number" required
+            style="padding:10px;border:1px solid #ccc;border-radius:6px;font-size:14px;">
+
+          <label for="message" style="font-size:14px;">Message</label>
+          <textarea id="message" name="Message" rows="5" placeholder="Your message" required
+            style="padding:10px;border:1px solid #ccc;border-radius:6px;font-size:14px;resize:vertical;"></textarea>
+
+          <button type="submit"
+            style="background:#4a44c9;color:white;border:none;padding:10px 16px;border-radius:8px;font-weight:600;cursor:pointer;box-shadow:0 6px 12px rgba(74,68,201,0.18);">
+            Send
+          </button>
+        </form>
       </div>
-    </div>
-  </section>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Bharwani & Associates. All Rights Reserved.</p>
+      <!-- Map column -->
+      <div style="flex:1 1 360px;min-width:300px;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(16,24,40,0.06);background:white;">
+        <!-- Container header -->
+        <div style="padding:12px 14px;border-bottom:1px solid #eef0f7;font-size:14px;font-weight:600;">
+          Location
+        </div>
+
+        <!-- Google Maps embed iframe (uses query) -->
+      <iframe
+  src="https://www.google.com/maps?q=1,+Galaxy+Market,+Near+Navyug+Tiles,+Godi+Road,+Dahod,+Gujarat,+389151&hl=en&z=16&output=embed"
+  width="100%"
+  height="400"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+
+        <!-- Small address footer -->
+        <div style="padding:10px 14px;font-size:13px;color:#444;border-top:1px solid #eef0f7;">
+          1, Galaxy Market, Near Navyug Tiles, Godi Road, Dahod, Gujarat, 389151
+        </div>
+      </div>
+
     </div>
-  </footer>
+  </div>
+
+  
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Bharwani & Associates</h3>
+                    <p>Your trusted partner for comprehensive financial solutions. We provide assurance, compliance, and resolution services to help your business thrive.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#audit-services">Audit Services</a></li>
+                        <li><a href="#direct-tax">Direct Tax</a></li>
+                        <li><a href="#indirect-taxes">Indirect Taxes</a></li>
+                        <li><a href="#cfo-services">CFO Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 1, Galaxy Market, Near Navyug Tiles, Godi Road, Dahod, Gujarat, 389151</li>
+                        <li><i class="fas fa-phone"></i> 81601 81883</li>
+                        <li><i class="fas fa-envelope"></i> bharwaniandassociates@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Bharwani & Associates. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('show');
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('nav-menu').classList.remove('show');
+                }
+            });
+        });
+        
+        // Mobile dropdown functionality
+        if (window.innerWidth <= 768) {
+            const navItems = document.querySelectorAll('nav ul li');
+            navItems.forEach(item => {
+                if (item.querySelector('.dropdown')) {
+                    const link = item.querySelector('a');
+                    link.addEventListener('click', function(e) {
+                        if (!this.nextElementSibling.style.display || this.nextElementSibling.style.display === 'none') {
+                            this.nextElementSibling.style.display = 'block';
+                        } else {
+                            this.nextElementSibling.style.display = 'none';
+                        }
+                        e.preventDefault();
+                    });
+                }
+            });
+        }
+        
+        
+       
+    </script>
 </body>
 </html>
