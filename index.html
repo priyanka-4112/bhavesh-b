@@ -894,39 +894,29 @@
 
       <!-- Form column -->
       <div style="flex:1 1 320px;min-width:300px;background:white;padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(16,24,40,0.06);">
-        <form id="contactForm" action="#" method="post" style="display:flex;flex-direction:column;gap:12px;">
-          <label for="name" style="font-size:13px;color:#333;">Name</label>
-          <input id="name" name="name" type="text" required
-                 placeholder="Your full name"
-                 style="padding:10px 12px;border:1px solid #d7dbe6;border-radius:8px;font-size:14px;outline:none;box-sizing:border-box;"
-          />
+        <form
+          id="contactForm"
+          method="GET"
+          action="mailto:youremail@example.com"
+          enctype="text/plain"
+          style="display:flex;flex-direction:column;gap:12px;">
 
-          <label for="phone" style="font-size:13px;color:#333;">Phone number</label>
-          <input id="phone" name="phone" type="tel" required
-                 placeholder="e.g. 9876543210"
-                 pattern="\d{10}" title="Enter 10 digit phone number"
-                 style="padding:10px 12px;border:1px solid #d7dbe6;border-radius:8px;font-size:14px;outline:none;box-sizing:border-box;"
-          />
+          <label for="name" style="font-size:14px;">Name</label>
+          <input type="text" id="name" name="Name" placeholder="Your name" required
+            style="padding:10px;border:1px solid #ccc;border-radius:6px;font-size:14px;">
 
-          <label for="message" style="font-size:13px;color:#333;">Message</label>
-          <textarea id="message" name="message" rows="5" required
-                    placeholder="Write your message..."
-                    style="padding:10px 12px;border:1px solid #d7dbe6;border-radius:8px;font-size:14px;resize:vertical;outline:none;box-sizing:border-box;"></textarea>
+          <label for="phone" style="font-size:14px;">Phone</label>
+          <input type="tel" id="phone" name="Phone" placeholder="Your phone number" required
+            style="padding:10px;border:1px solid #ccc;border-radius:6px;font-size:14px;">
 
-          <div style="display:flex;gap:10px;align-items:center;">
-            <button type="submit"
-                    style="background:#4a44c9;color:white;border:none;padding:10px 16px;border-radius:8px;font-weight:600;cursor:pointer;box-shadow:0 6px 12px rgba(74,68,201,0.18);">
-              Send
-            </button>
+          <label for="message" style="font-size:14px;">Message</label>
+          <textarea id="message" name="Message" rows="5" placeholder="Your message" required
+            style="padding:10px;border:1px solid #ccc;border-radius:6px;font-size:14px;resize:vertical;"></textarea>
 
-            <button type="reset"
-                    style="background:transparent;border:1px solid #cfd6ee;padding:8px 12px;border-radius:8px;cursor:pointer;">
-              Reset
-            </button>
-          </div>
-
-          <!-- simple inline feedback area -->
-          <div id="formMessage" role="status" aria-live="polite" style="font-size:13px;color:#0b76d1;margin-top:6px;"></div>
+          <button type="submit"
+            style="background:#4a44c9;color:white;border:none;padding:10px 16px;border-radius:8px;font-weight:600;cursor:pointer;box-shadow:0 6px 12px rgba(74,68,201,0.18);">
+            Send
+          </button>
         </form>
       </div>
 
