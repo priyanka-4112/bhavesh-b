@@ -1,0 +1,32 @@
+:root{
+  --primary:#1a3a5f;
+  --accent:#2c5aa0;
+  --white:#ffffff;
+  --muted:#6c757d;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Segoe UI,Roboto,Arial,sans-serif;color:#222;background:var(--white);line-height:1.6}
+.container{width:90%;max-width:1200px;margin:0 auto;padding:20px}
+header{background:var(--primary);color:var(--white);padding:14px 0}
+header .container{display:flex;align-items:center;justify-content:space-between}
+.logo h1{font-size:1.25rem;margin:0}
+.logo span{color:#d4af37}
+nav ul{list-style:none;display:flex;gap:18px;align-items:center}
+nav a{color:var(--white);text-decoration:none;font-weight:600;padding:6px 8px;border-radius:6px}
+nav a.home{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+nav a.home:hover{background:rgba(255,255,255,0.04)}
+.page-header{background:linear-gradient(135deg,var(--primary),var(--accent));color:var(--white);padding:60px 20px;text-align:center}
+.page-header h1{font-size:2rem;margin-bottom:8px}
+.page-header p{max-width:800px;margin:0 auto;color:rgba(255,255,255,0.9)}
+.page-content{padding:48px 20px;background:#fbfdff}
+.card{background:#fff;border-radius:10px;padding:22px;box-shadow:0 8px 24px rgba(26,58,95,0.06);margin-bottom:22px}
+h2{color:var(--primary);margin-bottom:12px}
+ul{margin-left:18px;margin-bottom:12px}
+footer{background:var(--primary);color:var(--white);padding:28px 20px;text-align:center;margin-top:30px}
+.contact-cta{display:inline-block;margin-top:12px;background:var(--accent);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:700}
+@media (max-width:768px){
+  header .container{flex-direction:column;gap:12px}
+  nav ul{flex-wrap:wrap;justify-content:center}
+  .page-header{padding:40px 16px}
+  .container{padding:12px}
+}
